@@ -3,7 +3,10 @@ package com.gridnine.testing;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FilterDateArrival implements Filter{
+/**
+ * Class exclude flights with arrival date earlier than departure date
+ */
+public class FilterDateArrival implements Filter {
     @Override
     public List<Flight> hide(List<Flight> flights) {
         return flights.stream()

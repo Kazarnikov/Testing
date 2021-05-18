@@ -4,9 +4,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FilterTimeDeparture implements Filter{
+/**
+ * Class exclude departing flights of time
+ */
+public class FilterTimeDeparture implements Filter {
     @Override
-    public  List<Flight> hide(List<Flight> flights) {
+    public List<Flight> hide(List<Flight> flights) {
         LocalDateTime time = LocalDateTime.now();
 
         return flights.stream()

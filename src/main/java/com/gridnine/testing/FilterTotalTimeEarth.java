@@ -4,7 +4,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FilterTotalTimeEarth implements Filter{
+/**
+ * Class exclude transfer times longer than 2 hours
+ */
+public class FilterTotalTimeEarth implements Filter {
     @Override
     public List<Flight> hide(List<Flight> flights) {
 
@@ -16,9 +19,9 @@ public class FilterTotalTimeEarth implements Filter{
                     if (transfers > 1) {
                         int totalTimeEarth = 0;
                         for (int i = 0; i < transfers - 1; i++) {
-                            totalTimeEarth +=  ChronoUnit.HOURS.between(segments.get(i).getArrivalDate(),
+                            totalTimeEarth += ChronoUnit.HOURS.between(segments.get(i).getArrivalDate(),
                                     segments.get(i + 1).getDepartureDate());
-                            if (totalTimeEarth >= timeLimit ) {
+                            if (totalTimeEarth >= timeLimit) {
                                 return false;
                             }
                         }
